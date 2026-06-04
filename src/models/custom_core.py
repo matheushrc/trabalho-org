@@ -1,3 +1,11 @@
+import os
+import sys
+
+GEM5_ROOT = os.environ.get("GEM5_ROOT", "/gem5")
+GEM5_PYTHON = os.path.join(GEM5_ROOT, "src", "python")
+if GEM5_PYTHON not in sys.path:
+    sys.path.insert(0, GEM5_PYTHON)
+
 from gem5.components.boards.simple_board import SimpleBoard
 from gem5.components.cachehierarchies.classic.private_l1_private_l2_cache_hierarchy import PrivateL1PrivateL2CacheHierarchy
 from gem5.components.memory.single_channel import SingleChannelDDR3_1600

@@ -31,6 +31,14 @@ This is the RISCV equivalent to `simple.py` (which is designed to run using the
 X86 ISA). More detailed documentation can be found in `simple.py`.
 """
 
+import os
+import sys
+
+GEM5_ROOT = os.environ.get("GEM5_ROOT", "/gem5")
+GEM5_PYTHON = os.path.join(GEM5_ROOT, "src", "python")
+if GEM5_PYTHON not in sys.path:
+    sys.path.insert(0, GEM5_PYTHON)
+
 import m5
 from m5.objects import *
 

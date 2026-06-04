@@ -8,10 +8,14 @@ services:
     platform: linux/amd64
     image: gem5-riscv:latest
     container_name: gem5
-    working_dir: /gem5
+    working_dir: /workspace
+
+    environment:
+      - GEM5_ROOT=/gem5
+      - PYTHONPATH=/gem5/src/python
 
     volumes:
-      - ./gem5:/gem5
+      - ./:/workspace
       - gem5-build-cache:/gem5/build
 
     stdin_open: true
