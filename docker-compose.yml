@@ -16,7 +16,6 @@ services:
 
     volumes:
       - ./:/workspace
-      - gem5-build-cache:/gem5/build
 
     stdin_open: true
     tty: true
@@ -31,5 +30,3 @@ services:
 
     command: bash
 
-volumes:
-  gem5-build-cache:
