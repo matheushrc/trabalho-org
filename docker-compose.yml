@@ -1,0 +1,31 @@
+services:
+  gem5:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      platforms:
+        - linux/amd64
+    platform: linux/amd64
+    image: gem5-riscv:latest
+    container_name: gem5
+    working_dir: /gem5
+
+    volumes:
+      - ./gem5:/gem5
+      - gem5-build-cache:/gem5/build
+
+    stdin_open: true
+    tty: true
+
+    # Optional: limits to avoid OOM during heavy parallel compilation.
+    # Rule of thumb: ~2 GB RAM per thread.
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "8"
+    #       memory: "16g"
+
+    command: bash
+
+volumes:
+  gem5-build-cache:
