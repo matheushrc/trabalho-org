@@ -1,0 +1,158 @@
+============================================================
+ BRANCH PREDICTOR STATS REPORT: BiModeBP
+============================================================
+
+--- Global Statistics ---
+Total Lookups: 39218.0 (Number of times branch predictor was queried)
+  - Return: 3096.0 (7.89%)
+  - CallDirect: 3048.0 (7.77%)
+  - CallIndirect: 141.0 (0.36%)
+  - DirectCond: 27232.0 (69.44%)
+  - DirectUncond: 3781.0 (9.64%)
+  - IndirectUncond: 1920.0 (4.90%)
+Total Committed Branches: 30971.0 (Branches that reached the commit stage and executed)
+  - Return: 2194.0 (7.08%)
+  - CallDirect: 2147.0 (6.93%)
+  - CallIndirect: 52.0 (0.17%)
+  - DirectCond: 21909.0 (70.74%)
+  - DirectUncond: 2927.0 (9.45%)
+  - IndirectUncond: 1742.0 (5.62%)
+Total Mispredicted Committed Branches: 984.0 (3.18% misprediction rate)
+  - Return: 0.0 mispredicted / 2194.0 committed (0.00% type mispred rate)
+  - CallDirect: 112.0 mispredicted / 2147.0 committed (5.22% type mispred rate)
+  - CallIndirect: 27.0 mispredicted / 52.0 committed (51.92% type mispred rate)
+  - DirectCond: 772.0 mispredicted / 21909.0 committed (3.52% type mispred rate)
+  - DirectUncond: 59.0 mispredicted / 2927.0 committed (2.02% type mispred rate)
+  - IndirectUncond: 14.0 mispredicted / 1742.0 committed (0.80% type mispred rate)
+
+--- Misprediction Breakdown ---
+Mispredictions due to Predictor (Direction Error): 542.0 (55.08% of mispredictions)
+Mispredictions due to BTB Miss (Target Error): 442.0 (44.92% of mispredictions)
+
+--- Target Providers (Where did targets come from?) ---
+  - None/Fallthrough: 22399.0 (57.11% of lookups)
+  - BTB: 11910.0 (30.37% of lookups)
+  - RAS: 3096.0 (7.89% of lookups)
+  - IndirectPredictor: 1813.0 (4.62% of lookups)
+
+--- BTB (Branch Target Buffer) ---
+BTB Lookups: 39218.0
+BTB Hits: 16077.0 (40.99% hit rate)
+BTB Updates: 1213.0
+BTB Mispredicted (Target wrong): 621.0
+
+--- RAS (Return Address Stack) ---
+RAS Pushes: 4090.0
+RAS Pops: 4084.0
+RAS Used as Target Provider: 2194.0
+RAS Predictions Correct: 2194.0 (100.00% accuracy)
+RAS Predictions Incorrect: 0.0
+
+--- Indirect Predictor ---
+Indirect Lookups: 2061.0
+Indirect Hits: 1813.0 (87.97% hit rate)
+Indirect Misses: 248.0
+Indirect Mispredicted: 0.0
+
+--- Conditional Predictor (Direction Prediction) ---
+Conditional Predictions: 27232.0
+Conditional Predicted Taken: 5832.0 (21.42%)
+Conditional Predictions Incorrect: 984.0 (3.61% error rate)
+Conditional Predictions Correct: 26248.0 (96.39% accuracy)
+
+
+==========================================================================================
+
+
+============================================================
+ BRANCH PREDICTOR STATS REPORT: LocalBP
+============================================================
+
+--- Global Statistics ---
+Total Lookups: 46370.0 (Number of times branch predictor was queried)
+  - Return: 3649.0 (7.87%)
+  - CallDirect: 3143.0 (6.78%)
+  - CallIndirect: 97.0 (0.21%)
+  - DirectCond: 33209.0 (71.62%)
+  - DirectUncond: 4097.0 (8.84%)
+  - IndirectUncond: 2175.0 (4.69%)
+Total Committed Branches: 30971.0 (Branches that reached the commit stage and executed)
+  - Return: 2194.0 (7.08%)
+  - CallDirect: 2147.0 (6.93%)
+  - CallIndirect: 52.0 (0.17%)
+  - DirectCond: 21909.0 (70.74%)
+  - DirectUncond: 2927.0 (9.45%)
+  - IndirectUncond: 1742.0 (5.62%)
+Total Mispredicted Committed Branches: 1643.0 (5.30% misprediction rate)
+  - Return: 0.0 mispredicted / 2194.0 committed (0.00% type mispred rate)
+  - CallDirect: 121.0 mispredicted / 2147.0 committed (5.64% type mispred rate)
+  - CallIndirect: 27.0 mispredicted / 52.0 committed (51.92% type mispred rate)
+  - DirectCond: 1421.0 mispredicted / 21909.0 committed (6.49% type mispred rate)
+  - DirectUncond: 60.0 mispredicted / 2927.0 committed (2.05% type mispred rate)
+  - IndirectUncond: 14.0 mispredicted / 1742.0 committed (0.80% type mispred rate)
+
+--- Misprediction Breakdown ---
+Mispredictions due to Predictor (Direction Error): 1189.0 (72.37% of mispredictions)
+Mispredictions due to BTB Miss (Target Error): 454.0 (27.63% of mispredictions)
+
+--- Target Providers (Where did targets come from?) ---
+  - None/Fallthrough: 24358.0 (52.53% of lookups)
+  - BTB: 16210.0 (34.96% of lookups)
+  - RAS: 3649.0 (7.87% of lookups)
+  - IndirectPredictor: 2153.0 (4.64% of lookups)
+
+--- BTB (Branch Target Buffer) ---
+BTB Lookups: 46370.0
+BTB Hits: 20611.0 (44.45% hit rate)
+BTB Updates: 1382.0
+BTB Mispredicted (Target wrong): 608.0
+
+--- RAS (Return Address Stack) ---
+RAS Pushes: 4694.0
+RAS Pops: 4689.0
+RAS Used as Target Provider: 2194.0
+RAS Predictions Correct: 2194.0 (100.00% accuracy)
+RAS Predictions Incorrect: 0.0
+
+--- Indirect Predictor ---
+Indirect Lookups: 2272.0
+Indirect Hits: 2153.0 (94.76% hit rate)
+Indirect Misses: 119.0
+Indirect Mispredicted: 0.0
+
+--- Conditional Predictor (Direction Prediction) ---
+Conditional Predictions: 33209.0
+Conditional Predicted Taken: 10078.0 (30.35%)
+Conditional Predictions Incorrect: 1643.0 (4.95% error rate)
+Conditional Predictions Correct: 31566.0 (95.05% accuracy)
+
+
+==========================================================================================
+
+
+==========================================================================================
+                                 METRIC COMPARISON TABLE                                  
+==========================================================================================
+Metric                                   |             BiModeBP |              LocalBP |   Diff (%)
+------------------------------------------------------------------------------------------
+Total Lookups                            |             39218.00 |             46370.00 |   -15.42%
+Total Committed Branches                 |             30971.00 |             30971.00 |     0.00%
+Total Mispredictions                     |               984.00 |              1643.00 |   -40.11%
+Overall Misprediction Rate (%)           |                 3.18 |                 5.30 |   -40.11%
+Mispred due to Predictor Direction       |               542.00 |              1189.00 |   -54.42%
+Mispred due to BTB Miss (Target)         |               442.00 |               454.00 |    -2.64%
+BTB Hit Rate (%)                         |                40.99 |                44.45 |    -7.77%
+RAS Accuracy (%)                         |               100.00 |               100.00 |     0.00%
+Indirect Hit Rate (%)                    |                87.97 |                94.76 |    -7.17%
+Conditional Predictor Accuracy (%)       |                96.39 |                95.05 | +    1.40%
+------------------------------------------------------------------------------------------
+
+* Conditional Branch Misprediction Rate Breakdown by Branch Type (Mispredicted / Committed):
+Branch Type               | BiModeBP                     | LocalBP                     
+------------------------------------------------------------------------------------------
+Return                    |      0/2194   ( 0.00%) |      0/2194   ( 0.00%)
+CallDirect                |    112/2147   ( 5.22%) |    121/2147   ( 5.64%)
+CallIndirect              |     27/52     (51.92%) |     27/52     (51.92%)
+DirectCond                |    772/21909  ( 3.52%) |   1421/21909  ( 6.49%)
+DirectUncond              |     59/2927   ( 2.02%) |     60/2927   ( 2.05%)
+IndirectUncond            |     14/1742   ( 0.80%) |     14/1742   ( 0.80%)

@@ -1,0 +1,1325 @@
+{
+  "simTicks": {
+    "value": 17857933500.0,
+    "type": "Scalar",
+    "description": "Number of ticks simulated",
+    "unit": "Tick",
+    "datatype": "f64"
+  },
+  "board": {
+    "processor": {
+      "cores": {
+        "value": [
+          {
+            "core": {
+              "branchPred": {
+                "type": "SimObject",
+                "time_conversion": null,
+                "name": "branchPred",
+                "lookups": {
+                  "value": {
+                    "0": {
+                      "value": {
+                        "0": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 5722939.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 7731273.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 112.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "4": {
+                          "value": 16631305.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "5": {
+                          "value": 2827829.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "6": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "7": {
+                          "value": 2160.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "Number of BP lookups"
+                    }
+                  },
+                  "type": "Vector2d",
+                  "description": "Number of BP lookups"
+                },
+                "squashes": {
+                  "value": {
+                    "0": {
+                      "value": {
+                        "0": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 2421155.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 4429549.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 47.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "4": {
+                          "value": 8466161.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "5": {
+                          "value": 1489060.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "6": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "7": {
+                          "value": 427.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "Number of branches that got squashed (completely removed) as an earlier branch was mispredicted."
+                    }
+                  },
+                  "type": "Vector2d",
+                  "description": "Number of branches that got squashed (completely removed) as an earlier branch was mispredicted."
+                },
+                "corrected": {
+                  "value": {
+                    "0": {
+                      "value": {
+                        "0": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 64843.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 183.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 23.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "4": {
+                          "value": 1420544.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "5": {
+                          "value": 116.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "6": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "7": {
+                          "value": 11.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "Number of branches that got corrected but not yet commited. Branches get corrected by decode or after execute. Also a branch misprediction can be detected out-of-order. Therefore, a corrected branch might not end up beeing committed in case an even earlier branch was mispredicted"
+                    }
+                  },
+                  "type": "Vector2d",
+                  "description": "Number of branches that got corrected but not yet commited. Branches get corrected by decode or after execute. Also a branch misprediction can be detected out-of-order. Therefore, a corrected branch might not end up beeing committed in case an even earlier branch was mispredicted"
+                },
+                "earlyResteers": {
+                  "value": {
+                    "0": {
+                      "value": {
+                        "0": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 183.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "4": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "5": {
+                          "value": 116.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "6": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "7": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "Number of branches that got redirected after decode."
+                    }
+                  },
+                  "type": "Vector2d",
+                  "description": "Number of branches that got redirected after decode."
+                },
+                "committed": {
+                  "value": {
+                    "0": {
+                      "value": {
+                        "0": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 3301783.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 3301724.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 64.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "4": {
+                          "value": 8165133.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "5": {
+                          "value": 1338769.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "6": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "7": {
+                          "value": 1733.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "Number of branches finally committed "
+                    }
+                  },
+                  "type": "Vector2d",
+                  "description": "Number of branches finally committed "
+                },
+                "mispredicted": {
+                  "value": {
+                    "0": {
+                      "value": {
+                        "0": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 64838.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 98.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 23.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "4": {
+                          "value": 1195531.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "5": {
+                          "value": 59.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "6": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "7": {
+                          "value": 11.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "Number of committed branches that were mispredicted."
+                    }
+                  },
+                  "type": "Vector2d",
+                  "description": "Number of committed branches that were mispredicted."
+                },
+                "mispredictDueToPredictor": {
+                  "value": {
+                    "0": {
+                      "value": {
+                        "0": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "4": {
+                          "value": 1195317.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "5": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "6": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "7": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "Number of committed branches that were mispredicted by the predictor."
+                    }
+                  },
+                  "type": "Vector2d",
+                  "description": "Number of committed branches that were mispredicted by the predictor."
+                },
+                "mispredictDueToBTBMiss": {
+                  "value": {
+                    "0": {
+                      "value": {
+                        "0": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 64838.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 98.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 23.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "4": {
+                          "value": 214.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "5": {
+                          "value": 59.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "6": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "7": {
+                          "value": 11.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "Number of committed branches that were mispredicted because of a BTB miss."
+                    }
+                  },
+                  "type": "Vector2d",
+                  "description": "Number of committed branches that were mispredicted because of a BTB miss."
+                },
+                "targetProvider": {
+                  "value": {
+                    "0": {
+                      "value": {
+                        "0": {
+                          "value": 5794922.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 21395598.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 5722939.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 2159.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "The component providing the target for taken branches"
+                    }
+                  },
+                  "type": "Vector2d",
+                  "description": "The component providing the target for taken branches"
+                },
+                "targetWrong": {
+                  "value": {
+                    "0": {
+                      "value": {
+                        "0": {
+                          "value": 578116.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 842761.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 64843.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "4": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "5": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "6": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        },
+                        "7": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Count",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "Number of branches where the target was incorrect or not available at prediction time."
+                    }
+                  },
+                  "type": "Vector2d",
+                  "description": "Number of branches where the target was incorrect or not available at prediction time."
+                },
+                "condPredicted": {
+                  "value": 16631305.0,
+                  "type": "Scalar",
+                  "description": "Number of conditional branches predicted",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "condPredictedTaken": {
+                  "value": 10837490.0,
+                  "type": "Scalar",
+                  "description": "Number of conditional branches predicted as taken",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "condIncorrect": {
+                  "value": 1260560.0,
+                  "type": "Scalar",
+                  "description": "Number of conditional branches incorrect",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "predTakenBTBMiss": {
+                  "value": 347.0,
+                  "type": "Scalar",
+                  "description": "Number of branches predicted taken but missed in BTB",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "BTBLookups": {
+                  "value": 32915618.0,
+                  "type": "Scalar",
+                  "description": "Number of BTB lookups",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "BTBUpdates": {
+                  "value": 578082.0,
+                  "type": "Scalar",
+                  "description": "Number of BTB updates",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "BTBHits": {
+                  "value": 26847669.0,
+                  "type": "Scalar",
+                  "description": "Number of BTB hits",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "BTBMispredicted": {
+                  "value": 551.0,
+                  "type": "Scalar",
+                  "description": "Number BTB mispredictions. No target found or target wrong",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "indirectLookups": {
+                  "value": 2272.0,
+                  "type": "Scalar",
+                  "description": "Number of indirect predictor lookups.",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "indirectHits": {
+                  "value": 2159.0,
+                  "type": "Scalar",
+                  "description": "Number of indirect target hits.",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "indirectMisses": {
+                  "value": 113.0,
+                  "type": "Scalar",
+                  "description": "Number of indirect misses.",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "indirectMispredicted": {
+                  "value": 0.0,
+                  "type": "Scalar",
+                  "description": "Number of mispredicted indirect branches.",
+                  "unit": "Count",
+                  "datatype": "f64"
+                },
+                "btb": {
+                  "type": "SimObject",
+                  "time_conversion": null,
+                  "name": "btb",
+                  "lookups": {
+                    "value": {
+                      "NoBranch": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB lookups",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "Return": {
+                        "value": 5722939.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB lookups",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "CallDirect": {
+                        "value": 7731273.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB lookups",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "CallIndirect": {
+                        "value": 112.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB lookups",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "DirectCond": {
+                        "value": 16631305.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB lookups",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "DirectUncond": {
+                        "value": 2827829.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB lookups",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "IndirectCond": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB lookups",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "IndirectUncond": {
+                        "value": 2160.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB lookups",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      }
+                    },
+                    "type": "Vector",
+                    "description": "Number of BTB lookups"
+                  },
+                  "misses": {
+                    "value": {
+                      "NoBranch": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB misses",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "Return": {
+                        "value": 5722939.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB misses",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "CallDirect": {
+                        "value": 345.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB misses",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "CallIndirect": {
+                        "value": 112.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB misses",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "DirectCond": {
+                        "value": 342146.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB misses",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "DirectUncond": {
+                        "value": 247.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB misses",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "IndirectCond": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB misses",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "IndirectUncond": {
+                        "value": 2160.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB misses",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      }
+                    },
+                    "type": "Vector",
+                    "description": "Number of BTB misses"
+                  },
+                  "updates": {
+                    "value": {
+                      "NoBranch": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB updates",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "Return": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB updates",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "CallDirect": {
+                        "value": 183.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB updates",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "CallIndirect": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB updates",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "DirectCond": {
+                        "value": 577783.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB updates",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "DirectUncond": {
+                        "value": 116.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB updates",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "IndirectCond": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB updates",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "IndirectUncond": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB updates",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      }
+                    },
+                    "type": "Vector",
+                    "description": "Number of BTB updates"
+                  },
+                  "mispredict": {
+                    "value": {
+                      "NoBranch": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB mispredictions. No target found or target wrong.",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "Return": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB mispredictions. No target found or target wrong.",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "CallDirect": {
+                        "value": 183.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB mispredictions. No target found or target wrong.",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "CallIndirect": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB mispredictions. No target found or target wrong.",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "DirectCond": {
+                        "value": 577783.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB mispredictions. No target found or target wrong.",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "DirectUncond": {
+                        "value": 116.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB mispredictions. No target found or target wrong.",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "IndirectCond": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB mispredictions. No target found or target wrong.",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      },
+                      "IndirectUncond": {
+                        "value": 0.0,
+                        "type": "Scalar",
+                        "description": "Number of BTB mispredictions. No target found or target wrong.",
+                        "unit": "Count",
+                        "datatype": "f64"
+                      }
+                    },
+                    "type": "Vector",
+                    "description": "Number of BTB mispredictions. No target found or target wrong."
+                  },
+                  "btbReplPolicy": {
+                    "type": "SimObject",
+                    "time_conversion": null,
+                    "name": "btbReplPolicy"
+                  },
+                  "btbIndexingPolicy": {
+                    "type": "SimObject",
+                    "time_conversion": null,
+                    "name": "btbIndexingPolicy"
+                  },
+                  "power_state": {
+                    "type": "SimObject",
+                    "time_conversion": null,
+                    "name": "power_state",
+                    "ticksClkGated": {
+                      "value": {
+                        "0": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "1": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "2": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "3": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "4": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "5": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "6": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "7": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "8": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "9": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "10": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "11": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "12": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "13": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "14": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "15": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "16": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "17": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "18": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "19": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": null,
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Distribution",
+                      "description": "Distribution of time spent in the clock gated state",
+                      "min": 0.0,
+                      "max": 0.0,
+                      "num_bins": 20,
+                      "bin_size": 49999999950.05,
+                      "sum": 0.0,
+                      "underflow": 0.0,
+                      "overflow": 0.0,
+                      "logs": 1.2397298908462065e+224,
+                      "sum_squared": 0.0
+                    },
+                    "pwrStateResidencyTicks": {
+                      "value": {
+                        "UNDEFINED": {
+                          "value": 17857933500.0,
+                          "type": "Scalar",
+                          "description": "Cumulative time (in ticks) in various power states",
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "ON": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": "Cumulative time (in ticks) in various power states",
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "CLK_GATED": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": "Cumulative time (in ticks) in various power states",
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "SRAM_RETENTION": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": "Cumulative time (in ticks) in various power states",
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        },
+                        "OFF": {
+                          "value": 0.0,
+                          "type": "Scalar",
+                          "description": "Cumulative time (in ticks) in various power states",
+                          "unit": "Tick",
+                          "datatype": "f64"
+                        }
+                      },
+                      "type": "Vector",
+                      "description": "Cumulative time (in ticks) in various power states"
+                    }
+                  }
+                },
+                "ras": {
+                  "type": "SimObject",
+                  "time_conversion": null,
+                  "name": "ras",
+                  "pushes": {
+                    "value": 10152540.0,
+                    "type": "Scalar",
+                    "description": "Number of times a PC was pushed onto the RAS",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  },
+                  "pops": {
+                    "value": 10152535.0,
+                    "type": "Scalar",
+                    "description": "Number of times a PC was poped from the RAS",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  },
+                  "squashes": {
+                    "value": 6850751.0,
+                    "type": "Scalar",
+                    "description": "Number of times the stack operation was squashed due to wrong speculation.",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  },
+                  "used": {
+                    "value": 3301783.0,
+                    "type": "Scalar",
+                    "description": "Number of times the RAS is the provider",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  },
+                  "correct": {
+                    "value": 3236945.0,
+                    "type": "Scalar",
+                    "description": "Number of times the RAS is the provider and the prediction is correct",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  },
+                  "incorrect": {
+                    "value": 64838.0,
+                    "type": "Scalar",
+                    "description": "Number of times the RAS is the provider and the prediction is wrong",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  }
+                },
+                "indirectBranchPred": {
+                  "type": "SimObject",
+                  "time_conversion": null,
+                  "name": "indirectBranchPred",
+                  "lookups": {
+                    "value": 2272.0,
+                    "type": "Scalar",
+                    "description": "Number of lookups",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  },
+                  "hits": {
+                    "value": 2159.0,
+                    "type": "Scalar",
+                    "description": "Number of hits of a tag",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  },
+                  "misses": {
+                    "value": 113.0,
+                    "type": "Scalar",
+                    "description": "Number of misses",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  },
+                  "targetRecords": {
+                    "value": 34.0,
+                    "type": "Scalar",
+                    "description": "Number of targets that where recorded/installed in the cache",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  },
+                  "indirectRecords": {
+                    "value": 2306.0,
+                    "type": "Scalar",
+                    "description": "Number of indirect branches/calls recorded in the indirect hist",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  },
+                  "speculativeOverflows": {
+                    "value": 7.0,
+                    "type": "Scalar",
+                    "description": "Number of times more than the allowed capacity for speculative branches/calls where in flight and destroy the path history",
+                    "unit": "Count",
+                    "datatype": "f64"
+                  }
+                },
+                "conditionalBranchPred": {
+                  "type": "SimObject",
+                  "time_conversion": null,
+                  "name": "conditionalBranchPred"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

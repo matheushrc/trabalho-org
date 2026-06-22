@@ -1,0 +1,9 @@
+{
+  "simTicks": {
+    "value": 48402756459.0,
+    "type": "Scalar",
+    "description": "Number of ticks simulated",
+    "unit": "Tick",
+    "datatype": "f64"
+  }
+}
