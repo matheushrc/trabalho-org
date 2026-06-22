@@ -4,15 +4,32 @@
 .section .rodata
 fmt_int: .string "%d "
 fmt_nl:  .string "\n"
-msg_orig: .string "Array original:\n"
-msg_sorted: .string "\nArray ordenado (decrescente):\n"
+msg_orig: .string "Array original (primeiros 20 ou menos):\n"
+msg_sorted: .string "\nArray ordenado (decrescente, primeiros 20 ou menos):\n"
+msg_skipped: .string "[Visualização pulada pois o array é muito grande]\n"
 
 .data
-arr_static: .word 12, 11, 13, 5, 6, 7
-n_elems: .word 6
+n_elems: .word 100000  # Tamanho do array (100k elementos)
+rand_state: .word 42   # Semente inicial para o gerador pseudo-aleatório (LCG)
 
 .text
 .globl main
+
+# int rand_assembly()
+# Implementação de um Linear Congruential Generator (LCG) simples:
+# X_{n+1} = (1103515245 * X_n + 12345) & 0x7FFFFFFF
+rand_assembly:
+    la t0, rand_state
+    lw t1, 0(t0)        # Carrega o estado atual (semente)
+    li t2, 1103515245   # Multiplicador a
+    mul t1, t1, t2      # seed * a
+    li t3, 12345        # Carrega c em t3
+    add t1, t1, t3      # seed * a + c
+    sw t1, 0(t0)        # Salva o novo estado
+    srli a0, t1, 16     # Desloca para obter bits de melhor qualidade
+    li t3, 0x7FFF       # Carrega máscara em t3
+    and a0, a0, t3      # Aplica a máscara
+    ret
 
 # void swap(int *a, int *b)
 swap:
@@ -24,11 +41,11 @@ swap:
 
 # void heapify(int *arr, int n, int i)
 heapify:
-    addi sp, sp, -16
-    sw ra, 12(sp)
-    sw s1, 8(sp)
-    sw s2, 4(sp)
-    sw s3, 0(sp)
+    addi sp, sp, -32
+    sd ra, 24(sp)
+    sd s1, 16(sp)
+    sd s2, 8(sp)
+    sd s3, 0(sp)
 
     mv s1, a0
     mv s2, a1
@@ -95,21 +112,21 @@ check_swap:
     jal ra, heapify
 
 done_heapify:
-    lw ra, 12(sp)
-    lw s1, 8(sp)
-    lw s2, 4(sp)
-    lw s3, 0(sp)
-    addi sp, sp, 16
+    ld ra, 24(sp)
+    ld s1, 16(sp)
+    ld s2, 8(sp)
+    ld s3, 0(sp)
+    addi sp, sp, 32
     ret
 
 # void heapSort(int *arr, int n)
 heapSort:
-    addi sp, sp, -20
-    sw ra, 16(sp)
-    sw s1, 12(sp)
-    sw s2, 8(sp)
-    sw s3, 4(sp)
-    sw s4, 0(sp)
+    addi sp, sp, -40
+    sd ra, 32(sp)
+    sd s1, 24(sp)
+    sd s2, 16(sp)
+    sd s3, 8(sp)
+    sd s4, 0(sp)
 
     mv s1, a0
     mv s2, a1
@@ -149,23 +166,26 @@ extract_loop:
     j extract_loop
 
 extract_done:
-    lw ra, 16(sp)
-    lw s1, 12(sp)
-    lw s2, 8(sp)
-    lw s3, 4(sp)
-    lw s4, 0(sp)
-    addi sp, sp, 20
+    ld ra, 32(sp)
+    ld s1, 24(sp)
+    ld s2, 16(sp)
+    ld s3, 8(sp)
+    ld s4, 0(sp)
+    addi sp, sp, 40
     ret
 
 # void imprimirArray(int *arr, int n)
 imprimirArray:
-    addi sp, sp, -12
-    sw ra, 8(sp)
-    sw s1, 4(sp)
-    sw s2, 0(sp)
+    addi sp, sp, -24
+    sd ra, 16(sp)
+    sd s1, 8(sp)
+    sd s2, 0(sp)
 
     mv s1, a0
     mv s2, a1
+    
+    li t0, 20
+    bgt s2, t0, print_skip   # Se n > 20, pula a impressão
     li t0, 0
 
 print_loop:
@@ -181,46 +201,47 @@ print_loop:
 print_done:
     la a0, fmt_nl
     jal ra, printf
+    j print_exit
 
-    lw ra, 8(sp)
-    lw s1, 4(sp)
-    lw s2, 0(sp)
-    addi sp, sp, 12
-    ret
+print_skip:
+    la a0, msg_skipped
+    jal ra, printf
 
-# Copia n words de src para dst (alocação dinâmica simulada via malloc no main)
-copiar_vetor:
-    mv t0, a0
-    mv t1, a1
-    mv t2, a2
-    li t3, 0
-copy_loop:
-    bge t3, t2, copy_done
-    slli t4, t3, 2
-    add t5, t0, t4
-    lw t6, 0(t5)
-    add t5, t1, t4
-    sw t6, 0(t5)
-    addi t3, t3, 1
-    j copy_loop
-copy_done:
+print_exit:
+    ld ra, 16(sp)
+    ld s1, 8(sp)
+    ld s2, 0(sp)
+    addi sp, sp, 24
     ret
 
 .globl main
 main:
-    addi sp, sp, -4
-    sw ra, 0(sp)
+    addi sp, sp, -32
+    sd ra, 24(sp)
+    sd s1, 16(sp)
+    sd s2, 8(sp)
+    sd s3, 0(sp)
 
+    # Carrega n_elems
     la t0, n_elems
     lw s2, 0(t0)
+    
+    # Aloca memória dinamicamente via malloc: n_elems * 4 bytes
     slli a0, s2, 2
     jal ra, malloc
     mv s1, a0
 
-    la a0, arr_static
-    mv a1, s1
-    mv a2, s2
-    jal ra, copiar_vetor
+    # Inicializa o array com valores aleatórios usando o LCG em assembly
+    li s3, 0            # s3 é o contador do loop de preenchimento (índice = 0)
+populate_loop:
+    bge s3, s2, populate_done  # Se índice >= n_elems, termina
+    jal ra, rand_assembly     # Gera um número aleatório em a0
+    slli t0, s3, 2            # t0 = índice * 4
+    add t1, s1, t0            # t1 = endereço de arr[índice]
+    sw a0, 0(t1)              # Salva o valor aleatório no array
+    addi s3, s3, 1            # índice++
+    j populate_loop
+populate_done:
 
     la a0, msg_orig
     jal ra, printf
@@ -240,6 +261,13 @@ main:
     mv a1, s2
     jal ra, imprimirArray
 
-    lw ra, 0(sp)
-    addi sp, sp, 4
+    # Libera a memória alocada
+    mv a0, s1
+    jal ra, free
+
+    ld ra, 24(sp)
+    ld s1, 16(sp)
+    ld s2, 8(sp)
+    ld s3, 0(sp)
+    addi sp, sp, 32
     ret
