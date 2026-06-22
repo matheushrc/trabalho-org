@@ -203,3 +203,8 @@ pip-selfcheck.json
 # End of https://www.toptal.com/developers/gitignore/api/git,venv,python
 
 m5out/
+
+# Only keep stats.json from simulation outputs
+simulations/**
+!simulations/**/
+!simulations/**/stats.json
