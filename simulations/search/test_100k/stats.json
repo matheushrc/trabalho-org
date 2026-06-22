@@ -1,9 +1,45 @@
 {
+  "simInsts": {
+    "value": 86674630.0,
+    "type": "Scalar",
+    "description": "Number of instructions simulated",
+    "unit": "Count",
+    "datatype": "f64"
+  },
   "simTicks": {
     "value": 48402756459.0,
     "type": "Scalar",
     "description": "Number of ticks simulated",
     "unit": "Tick",
     "datatype": "f64"
+  },
+  "core_numCycles": {
+    "value": 145353623.0,
+    "type": "Scalar",
+    "description": "Number of cpu cycles simulated",
+    "unit": "Cycle",
+    "datatype": "f64"
+  },
+  "l1d_cache_0_by_cmd": {
+    "LoadLockedReq": {
+      "hits": 9.0,
+      "misses": 2.0
+    },
+    "ReadReq": {
+      "hits": 15517356.0,
+      "misses": 390014.0
+    },
+    "StoreCondReq": {
+      "hits": 11.0,
+      "misses": 0.0
+    },
+    "SwapReq": {
+      "hits": 17.0,
+      "misses": 2.0
+    },
+    "WriteReq": {
+      "hits": 9854961.0,
+      "misses": 225.0
+    }
   }
 }
