@@ -204,22 +204,21 @@
     \item Assembly adaptado do Venus para o gem5: sintaxe GCC, ponto de entrada
           \texttt{main}, \texttt{printf}/\texttt{malloc}, binário RISC-V estático.
     \item Lógica preservada: \texttt{heapSort}, \texttt{heapify}, \texttt{swap}.
-    \item Variou-se a frequência de clock (2, 3 e 4 GHz) para observar o impacto
-          no tempo total de simulação.
+    \item Simulações em ambiente Docker (gem5.opt + \texttt{inorder.py}), CPU
+          \texttt{TIMING} a clock fixo de 3\,GHz, L1 32\,kB, L2 256\,kB,
+          DDR3 1\,GB.
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Metodologia --- geração assistida das simulações}
   \begin{itemize}
     \item \texttt{inorder.py} parametrizado (via IA) com \texttt{argparse}:
-          CPU, preditor, clock, caches L1/L2, hierarquia, núcleos, memória.
-    \item \texttt{run\_all\_simulations.sh}: varredura uniparamétrica
-          (um eixo por vez) sobre todo o espaço de hardware.
-    \item L2, memória, núcleos e hierarquia não impactavam o desempenho
-          com $n=6$ (vetor cabia todo na L1) $\rightarrow$ motivou o
-          benchmark de $n=100.000$.
-    \item \texttt{search\_simulations.py}: busca em grade/aleatória
-          adicional sobre o espaço de hardware.
+          CPU, preditor, clock, caches L1/L2, hierarquia, núcleos, memória ---
+          usado para fixar os valores padrão (TIMING, 3\,GHz, L1 32\,kB,
+          L2 256\,kB, 1\,GB) na comparação dos preditores.
+    \item Comparação executada com o vetor padrão ($n=6$) e, para validar em
+          escala maior, também com $n=100.000$ elementos (gerado pela IA em
+          assembly puro a partir de \texttt{heapSort\_gem5.s}).
   \end{itemize}
 \end{frame}
 

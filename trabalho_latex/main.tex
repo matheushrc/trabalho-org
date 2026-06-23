@@ -77,9 +77,7 @@ As simulações foram executadas em ambiente Docker com gem5 (\texttt{gem5.opt})
 
 \subsection{Geração assistida das simulações}
 
-Sem saber de antemão quais combinações de parâmetros cobririam os diferentes aspectos da microarquitetura, pedimos a um modelo de LLM que reescrevesse \texttt{inorder.py} aceitando, via \texttt{argparse}, CPU, preditor de desvio, clock, caches L1/L2, hierarquia, núcleos e memória, e gerasse \texttt{run\_all\_simulations.sh} com uma varredura uniparamétrica (um eixo por vez), origem das pastas \texttt{simulations/\{branch\_prediction, cpu\_type, clock\_freq, cache\_l1, cache\_l2, cache\_hierarchy, num\_cores, memory, hybrids\}}.
-
-Percebemos que vários eixos (L2, memória, núcleos, hierarquia) não variavam o desempenho, pois o vetor de $n=6$ cabia todo na L1. Pedimos então à IA que reescrevesse \texttt{heapSort\_gem5.s} para gerar, em assembly puro, um vetor aleatório de 100.000 elementos. Inspirados em \texttt{GridSearchCV}/\texttt{RandomizedSearchCV}, geramos também \texttt{search\_simulations.py}, com busca em grade e aleatória sobre o espaço de hardware (pastas \texttt{simulations/search/grid\_*} e \texttt{random\_*}).
+Pedimos a um modelo de LLM que reescrevesse \texttt{inorder.py} aceitando, via \texttt{argparse}, CPU, preditor de desvio, clock, caches L1/L2, hierarquia, núcleos e memória, parametrização usada para fixar os valores padrão (CPU \texttt{TIMING}, 3\,GHz, L1 32\,kB, L2 256\,kB, DDR3 1\,GB) na comparação dos preditores. Executamos a comparação com o vetor padrão ($n=6$) e, para validar o comportamento em escala maior, também com $n=100.000$ elementos, gerado pela IA em assembly puro a partir de \texttt{heapSort\_gem5.s}; ambas as execuções usam os mesmos valores padrão do \texttt{inorder.py}.
 
 \subsection{Cenários experimentais}
 
@@ -165,7 +163,7 @@ Para o HeapSort em RISC-V simulado no gem5 em pipeline em-ordem, o preditor \tex
 
 \section*{Declaração de uso de IA}
 
-Ferramentas de inteligência artificial foram utilizadas na reescrita de \texttt{inorder.py} e do HeapSort em escala (\texttt{heapSort\_100k.s}), na geração dos scripts de automação e busca de hiperparâmetros (\texttt{run\_all\_simulations.sh}, \texttt{search\_simulations.py}) e na revisão textual deste relatório, conforme descrito na Seção~3.2. A interpretação dos resultados, a execução dos experimentos e a análise microarquitetural são de responsabilidade dos autores.
+Ferramentas de inteligência artificial foram utilizadas na reescrita de \texttt{inorder.py} e do HeapSort em escala (\texttt{heapSort\_100k.s}) e na revisão textual deste relatório, conforme descrito na Seção~3.2. A interpretação dos resultados, a execução dos experimentos e a análise microarquitetural são de responsabilidade dos autores.
 
 \bibliographystyle{sbc}
 \bibliography{referencias}
