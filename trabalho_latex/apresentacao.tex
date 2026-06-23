@@ -1,5 +1,5 @@
 % Apresentação (slides) — conversão do seminario.pdf para LaTeX/Beamer.
-% 21 frames (mesma contagem do seminário original).
+% 20 frames (seminário original tinha 21; -1 por mesclar dois slides de metodologia).
 % Conteúdo revisado: a comparação de preditores roda em CPU TIMING (em-ordem),
 % conforme o tópico 2; os números seguem o relatório (main.tex) e os dados
 % brutos do gem5. Teoria (branch prediction) replica o conteúdo das págs. 7-11
@@ -199,23 +199,13 @@
 % ====================================================================
 \section{Metodologia}
 
-\begin{frame}{Metodologia --- adaptação do código}
+\begin{frame}{Metodologia --- ambiente e geração assistida}
   \begin{itemize}
-    \item Assembly adaptado do Venus para o gem5: sintaxe GCC, ponto de entrada
-          \texttt{main}, \texttt{printf}/\texttt{malloc}, binário RISC-V estático.
-    \item Lógica preservada: \texttt{heapSort}, \texttt{heapify}, \texttt{swap}.
-    \item Simulações em ambiente Docker (gem5.opt + \texttt{inorder.py}), CPU
-          \texttt{TIMING} a clock fixo de 3\,GHz, L1 32\,kB, L2 256\,kB,
-          DDR3 1\,GB.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Metodologia --- geração assistida das simulações}
-  \begin{itemize}
-    \item \texttt{inorder.py} parametrizado (via IA) com \texttt{argparse}:
-          CPU, preditor, clock, caches L1/L2, hierarquia, núcleos, memória ---
-          usado para fixar os valores padrão (TIMING, 3\,GHz, L1 32\,kB,
-          L2 256\,kB, 1\,GB) na comparação dos preditores.
+    \item Simulações em ambiente Docker (gem5.opt + \texttt{inorder.py}),
+          parametrizado (via IA) com \texttt{argparse}: CPU, preditor,
+          clock, caches L1/L2, hierarquia, núcleos, memória.
+    \item Valores fixados na comparação dos preditores: CPU \texttt{TIMING}
+          (em-ordem), 3\,GHz, L1 32\,kB, L2 256\,kB, DDR3 1\,GB.
     \item Comparação executada com o vetor padrão ($n=6$) e, para validar em
           escala maior, também com $n=100.000$ elementos (gerado pela IA em
           assembly puro a partir de \texttt{heapSort\_gem5.s}).
