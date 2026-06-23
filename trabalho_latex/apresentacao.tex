@@ -250,10 +250,14 @@
 \begin{frame}{Metodologia --- métricas coletadas}
   Extraídas de \texttt{m5out/stats.json} após cada simulação:
   \begin{itemize}
-    \item \texttt{branchPred.BTBLookups} --- total de desvios avaliados;
-    \item \texttt{branchPred.condIncorrect} --- predições incorretas;
+    \item \texttt{branchPred.BTBLookups} (consultas à Branch Target Buffer)
+          --- total de desvios avaliados;
+    \item \texttt{branchPred.condIncorrect} (desvios condicionais
+          incorretos) --- predições incorretas;
     \item \texttt{simTicks} --- tempo total de simulação;
-    \item \textbf{IPC} = \texttt{simInsts / core\_numCycles}.
+    \item \textbf{IPC} (instruções por ciclo) =
+          \texttt{simInsts / core\_numCycles} (instruções simuladas /
+          ciclos do núcleo).
   \end{itemize}
   \vfill
   Taxa de erro global = \texttt{condIncorrect / BTBLookups}

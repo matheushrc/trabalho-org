@@ -105,13 +105,13 @@ A taxa de erro global foi calculada como $\text{taxa} = \texttt{condIncorrect} /
 
 \section{Resultados}
 
-\subsection{Cenário baseline (3\,GHz, pipeline em-ordem)}
+\subsection{Cenário padrão (3\,GHz, pipeline em-ordem)}
 
-A entrega parcial confirmou a execução correta do binário no gem5. A Tabela~\ref{tab:baseline} resume as métricas do cenário baseline com CPU em-ordem a 3\,GHz.
+A entrega parcial confirmou a execução correta do binário no gem5. A Tabela~\ref{tab:baseline} resume as métricas do cenário padrão (LocalBP) com CPU em-ordem a 3\,GHz.
 
 \begin{table}[ht]
 \centering
-\caption{Métricas do cenário baseline (CPU em-ordem, 3\,GHz, $n=6$)}
+\caption{Métricas do cenário padrão (CPU em-ordem, 3\,GHz, $n=6$, LocalBP)}
 \label{tab:baseline}
 \begin{tabular}{lc}
 \toprule
@@ -177,7 +177,7 @@ Ferramentas de inteligência artificial foram utilizadas na reescrita de \texttt
 riscv64-linux-gnu-gcc -static heapSort_original.s \
   -o heapSort_original.riscv
 
-# Simular no gem5 (CPU em-ordem, baseline)
+# Simular no gem5 (CPU em-ordem, cenario padrao)
 ./gem5/build/RISCV/gem5.opt src/models/inorder.py \
   --binary src/heapSort_original.riscv
 
