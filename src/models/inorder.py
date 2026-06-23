@@ -43,16 +43,16 @@ Variaveis configuráveis via linha de comando:
 
 Exemplos de uso:
   # Branch Prediction: LocalBP (simples) vs BiModeBP (global complexo)
-  gem5.opt inorder.py --binary ./heapSort.riscv --branch-predictor LocalBP
-  gem5.opt inorder.py --binary ./heapSort.riscv --branch-predictor BiModeBP
+  gem5.opt inorder.py --binary ./heapSort_original.riscv --branch-predictor LocalBP
+  gem5.opt inorder.py --binary ./heapSort_original.riscv --branch-predictor BiModeBP
 
   # Variacao de clock
-  gem5.opt inorder.py --binary ./heapSort.riscv --clk-freq 1GHz
-  gem5.opt inorder.py --binary ./heapSort.riscv --clk-freq 4GHz
+  gem5.opt inorder.py --binary ./heapSort_original.riscv --clk-freq 1GHz
+  gem5.opt inorder.py --binary ./heapSort_original.riscv --clk-freq 4GHz
 
   # Variacao de cache
-  gem5.opt inorder.py --binary ./heapSort.riscv --l1d-size 16kB --l2-size 128kB
-  gem5.opt inorder.py --binary ./heapSort.riscv --l1d-size 64kB --l2-size 1MB
+  gem5.opt inorder.py --binary ./heapSort_original.riscv --l1d-size 16kB --l2-size 128kB
+  gem5.opt inorder.py --binary ./heapSort_original.riscv --l1d-size 64kB --l2-size 1MB
 """
 
 import os

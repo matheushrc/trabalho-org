@@ -1,5 +1,5 @@
 # HeapSort para gem5 — adaptado do heapSort.txt (tutorial Venus → gem5)
-# Compilar: riscv64-linux-gnu-gcc -static heapSort_gem5.s -o heapSort.riscv
+# Compilar: riscv64-linux-gnu-gcc -static heapSort_100k.s -o heapSort.riscv
 
 .section .rodata
 fmt_int: .string "%d "
