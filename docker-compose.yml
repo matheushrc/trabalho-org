@@ -30,3 +30,22 @@ services:
 
     command: bash
 
+  tex:
+    image: texlive/texlive:latest
+    container_name: tex
+    working_dir: /workspace/trabalho_latex
+
+    volumes:
+      - ./:/workspace
+
+    command: >
+      bash -c "
+      pdflatex -interaction=nonstopmode main.tex &&
+      bibtex main &&
+      pdflatex -interaction=nonstopmode main.tex &&
+      pdflatex -interaction=nonstopmode main.tex &&
+      pdflatex -interaction=nonstopmode apresentacao.tex &&
+      pdflatex -interaction=nonstopmode apresentacao.tex &&
+      rm -f *.aux *.log *.out *.bbl *.blg *.toc *.nav *.snm *.vrb
+      "
+

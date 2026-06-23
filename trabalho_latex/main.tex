@@ -11,22 +11,15 @@
 
 \sloppy
 
-\title{Avalia{\c{c}}{\~a}o de Predi{\c{c}}{\~a}o de Desvios no HeapSort em {RISC-V} com o Simulador gem5}
+\title{Avaliação de Predição de Desvios no HeapSort em {RISC-V} com o Simulador gem5}
 
-\author{Matheus Henrique Rodrigues da Costa\inst{1},
-  Lucas Smaniotto Schuch\inst{1}\\[4pt]
-  Kassiara Regina Bosing\inst{1},
-  Jean Carlos Canova Gondorek\inst{1}\\[4pt]
-  Jonathan Gotz Correa\inst{1}}
+\author{Matheus H. R. da Costa\inst{1}, Lucas S. Schuch\inst{1}, Kassiara R. Bosing\inst{1},\\
+  Jean C. C. Gondorek\inst{1}, Jonathan G. Correa\inst{1}}
 
-\address{Curso de Ci{\^e}ncia da Computa{\c{c}}{\~a}o -- Universidade Federal da Fronteira Sul (UFFS)\\
-  Chapec{\'o} -- SC -- Brasil\\[6pt]
-  {\footnotesize
-  \texttt{matheus.dacosta@estudante.uffs.edu.br}\\
-  \texttt{lucas.schuch@estudante.uffs.edu.br}\\
-  \texttt{kassiara.bosing@estudante.uffs.edu.br}\\
-  \texttt{jean.gondorek@estudante.uffs.edu.br}\\
-  \texttt{jonathan.correa@estudante.uffs.edu.br}}
+\address{Universidade Federal da Fronteira Sul (UFFS)\\
+  Chapecó -- SC -- Brasil
+  \email{\{matheus.dacosta, lucas.schuch, kassiara.bosing\}@estudante.uffs.edu.br}
+  \email{\{jean.gondorek, jonathan.correa\}@estudante.uffs.edu.br}
 }
 
 \begin{document}
@@ -76,7 +69,8 @@ O HeapSort implementado utiliza \emph{min-heap} e produz ordenação decrescente
 O código assembly \texttt{heapSort\_original.s} foi adaptado do Trabalho~1 para a sintaxe GCC, com ponto de entrada \texttt{main}, uso de \texttt{printf} e alocação via \texttt{malloc}. A compilação gera binário estático exigido pelo gem5:
 
 \begin{verbatim}
-riscv64-linux-gnu-gcc -static heapSort_original.s -o heapSort_original.riscv
+riscv64-linux-gnu-gcc -static heapSort_original.s \
+  -o heapSort_original.riscv
 \end{verbatim}
 
 As simulações foram executadas em ambiente Docker com gem5 (\texttt{gem5.opt}) e o script \texttt{inorder.py}. Todos os cenários usam a CPU \texttt{CPUTypes.TIMING} (pipeline em-ordem) com cache L1 de 32\,kB, L2 de 256\,kB, memória DDR3 de 1\,GB e clock de 3\,GHz; a comparação entre preditores de desvio (\texttt{LocalBP} vs.\ \texttt{BiModeBP}) mantém os demais parâmetros de hardware idênticos entre os dois cenários.
@@ -182,7 +176,8 @@ Ferramentas de inteligência artificial foram utilizadas na reescrita de \texttt
 
 \begin{verbatim}
 # Compilar o binario estatico RISC-V
-riscv64-linux-gnu-gcc -static heapSort_original.s -o heapSort_original.riscv
+riscv64-linux-gnu-gcc -static heapSort_original.s \
+  -o heapSort_original.riscv
 
 # Simular no gem5 (CPU em-ordem, baseline)
 ./gem5/build/RISCV/gem5.opt src/models/inorder.py \

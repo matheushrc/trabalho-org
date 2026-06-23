@@ -68,6 +68,16 @@ Execute a simulação do programa usando um dos modelos de processador:
 ./gem5/build/RISCV/gem5.opt models/inorder.py --binary programs/sum.riscv
 ```
 
+## Gerar os PDFs do relatório e dos slides
+
+O serviço `tex` do `docker-compose.yml` usa a imagem `texlive/texlive` para compilar `trabalho_latex/main.tex` e `trabalho_latex/apresentacao.tex`, deixando apenas os `.pdf` (os arquivos auxiliares do LaTeX são removidos ao final):
+
+```bash
+docker compose run --rm tex
+```
+
+Os PDFs são gerados em `trabalho_latex/main.pdf` e `trabalho_latex/apresentacao.pdf`.
+
 ## Estrutura do Repositório
 
 - **src/**: Fontes RISC-V e binários compilados — `heapSort_original.s`/`.riscv` (entrega parcial, n=6) e `heapSort_100k.s`/`.riscv` (n=100.000) — além dos modelos de processador em `src/models/`
