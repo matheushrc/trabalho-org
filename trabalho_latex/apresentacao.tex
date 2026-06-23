@@ -209,16 +209,43 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Metodologia --- cenários comparados}
+\begin{frame}{Metodologia --- geração assistida das simulações}
   \begin{itemize}
-    \item Dois cenários, demais parâmetros de hardware \textbf{fixos}:
-      \begin{itemize}
-        \item \textbf{Cenário A} --- LocalBP (preditor local simples);
-        \item \textbf{Cenário B} --- BiModeBP (bi-mode global).
-      \end{itemize}
-    \item Entrada padrão: $n = 6$ (\{12, 11, 13, 5, 6, 7\}).
-    \item Benchmark complementar: $n = 100.000$ para validar em escala.
+    \item \texttt{inorder.py} parametrizado (via IA) com \texttt{argparse}:
+          CPU, preditor, clock, caches L1/L2, hierarquia, núcleos, memória.
+    \item \texttt{run\_all\_simulations.sh}: varredura uniparamétrica
+          (um eixo por vez) sobre todo o espaço de hardware.
+    \item L2, memória, núcleos e hierarquia não impactavam o desempenho
+          com $n=6$ (vetor cabia todo na L1) $\rightarrow$ motivou o
+          benchmark de $n=100.000$.
+    \item \texttt{search\_simulations.py}: busca em grade/aleatória
+          adicional sobre o espaço de hardware.
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Metodologia --- cenários comparados}
+  \begin{columns}[t]
+    \column{0.5\textwidth}
+      \textbf{Comparação de preditores}
+      \begin{itemize}
+        \item CPU \textbf{TIMING} (pipeline em-ordem)
+        \item \textbf{Cenário A} --- LocalBP (local simples)
+        \item \textbf{Cenário B} --- BiModeBP (bi-mode global)
+        \item Demais parâmetros fixos no par
+      \end{itemize}
+    \column{0.5\textwidth}
+      \textbf{Escalas testadas}
+      \begin{itemize}
+        \item $n=6$ (\{12, 11, 13, 5, 6, 7\})
+        \item $n=100.000$ (validação em escala)
+        \item Clock 3 GHz; L1 32 kB; L2 256 kB
+      \end{itemize}
+  \end{columns}
+  \vfill
+  \footnotesize\textit{Observação: na CPU em-ordem (TIMING) a troca de preditor
+  não altera o \texttt{simTicks} --- esse modelo não penaliza ciclos por
+  \emph{misprediction}; por isso o ganho do BiModeBP aparece na contagem de
+  erros, não no tempo simulado.}
 \end{frame}
 
 \begin{frame}{Metodologia --- métricas coletadas}
@@ -230,32 +257,8 @@
     \item \textbf{IPC} = \texttt{simInsts / core\_numCycles}.
   \end{itemize}
   \vfill
-  Taxa de erro global = \texttt{condIncorrect / committed}
-  (predições incorretas sobre desvios commitados).
-\end{frame}
-
-\begin{frame}{Metodologia --- configuração experimental}
-  \begin{columns}[t]
-    \column{0.5\textwidth}
-      \textbf{Comparação de preditores}
-      \begin{itemize}
-        \item CPU \textbf{TIMING} (pipeline em-ordem)
-        \item LocalBP vs. BiModeBP
-        \item Demais parâmetros fixos no par
-      \end{itemize}
-    \column{0.5\textwidth}
-      \textbf{Escalas testadas}
-      \begin{itemize}
-        \item $n=6$ (entrega parcial)
-        \item $n=100.000$ (validação em escala)
-        \item Clock 3 GHz; L1 32 kB; L2 256 kB
-      \end{itemize}
-  \end{columns}
-  \vfill
-  \footnotesize\textit{Observação: na CPU em-ordem (TIMING) a troca de preditor
-  não altera o \texttt{simTicks} --- esse modelo não penaliza ciclos por
-  \emph{misprediction}; por isso o ganho do BiModeBP aparece na contagem de
-  erros, não no tempo simulado.}
+  Taxa de erro global = \texttt{condIncorrect / BTBLookups}
+  (predições incorretas sobre o total de desvios avaliados).
 \end{frame}
 
 % ====================================================================
