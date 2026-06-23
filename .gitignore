@@ -210,3 +210,7 @@ simulations/**
 !simulations/**/stats.json
 # build/packaging artifacts (reconstructible)
 *.zip
+
+# src/analysis/lib is project code, not a venv lib/ dir (see venv section above)
+!src/analysis/lib/
+!src/analysis/lib/*.py
