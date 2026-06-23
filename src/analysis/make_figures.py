@@ -102,6 +102,83 @@ def fig_inorder():
     _save(fig, "comparacao_inorder.png")
 
 
+def fig_volume():
+    """Volume: desvios avaliados e desvios DirectCond (EM-ORDEM, TIMING, n=6).
+
+    Recriação da antiga volume_e_desvios.png (que usava dados O3), agora com
+    os números em-ordem corretos.
+    """
+    fig, ax = plt.subplots(figsize=(7, 4.5))
+    _grouped(ax, ["Desvios avaliados\n(lookups)", "Desvios DirectCond"],
+             [LO.bp_lookups, LO.directcond_committed],
+             [BI.bp_lookups, BI.directcond_committed])
+    ax.set_ylabel("Quantidade")
+    ax.set_title("Volume de desvios avaliados (pipeline em-ordem, TIMING, n=6)\nidêntico para os dois preditores")
+    _save(fig, "volume_e_desvios.png")
+
+
+def fig_incorretas():
+    """Predições incorretas totais e erros em DirectCond (EM-ORDEM, TIMING, n=6).
+
+    Recriação da antiga predicoes_incorretas.png com dados em-ordem corretos.
+    """
+    fig, ax = plt.subplots(figsize=(7, 4.5))
+    _grouped(ax, ["Total de predições\nincorretas", "Erros em DirectCond"],
+             [LO.cond_incorrect, LO.directcond_mispredicted],
+             [BI.cond_incorrect, BI.directcond_mispredicted])
+    ax.set_ylabel("Quantidade de erros")
+    ax.set_ylim(0, LO.cond_incorrect * 1.3)
+    ax.set_title("Impacto nas predições incorretas (pipeline em-ordem, TIMING, n=6)")
+    _save(fig, "predicoes_incorretas.png")
+
+
+def fig_taxas():
+    """Taxa de erro global e em DirectCond, % (EM-ORDEM, TIMING, n=6).
+
+    Recriação da antiga taxa_erro_precisao.png com dados em-ordem corretos.
+    """
+    lo_g = LO.cond_incorrect / LO.bp_lookups * 100
+    bi_g = BI.cond_incorrect / BI.bp_lookups * 100
+    lo_dc = LO.directcond_mispredicted / LO.directcond_committed * 100
+    bi_dc = BI.directcond_mispredicted / BI.directcond_committed * 100
+    fig, ax = plt.subplots(figsize=(7, 4.5))
+    _grouped(ax, ["Taxa de erro\nglobal (%)", "Taxa de erro\nDirectCond (%)"],
+             [lo_g, lo_dc], [bi_g, bi_dc], fmt="{:.2f}")
+    ax.set_ylabel("Percentual (%)")
+    ax.set_ylim(0, max(lo_g, lo_dc, bi_g, bi_dc) * 1.3)
+    ax.set_title("Taxas de erro de predição (pipeline em-ordem, TIMING, n=6)")
+    _save(fig, "taxa_erro_precisao.png")
+
+
+def fig_tempo_ipc():
+    """simTicks e IPC reais (EM-ORDEM, TIMING, n=6). Recriação da antiga
+    tempo_ipc_o3.png, agora mostrando que ambos são IDÊNTICOS em-ordem —
+    o modelo TIMING não modela o efeito do preditor no tempo/IPC.
+    """
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10, 5.2))
+    fig.suptitle("LocalBP vs. BiModeBP — pipeline em-ordem (TIMING, n=6)\n"
+                 "simTicks e IPC não variam com o preditor neste modelo",
+                 fontweight="bold", y=1.06)
+
+    ticks = [LO.sim_ticks / 1e6, BI.sim_ticks / 1e6]
+    b = a1.bar(["LocalBP", "BiModeBP"], ticks, color=[C_LOCAL, C_BIMODE])
+    for r, v in zip(b, ticks):
+        a1.annotate(f"{v:.2f}M", (r.get_x() + r.get_width() / 2, v), ha="center", va="bottom")
+    a1.set_title("Tempo total de simulação\nvariação: 0% (idêntico)")
+    a1.set_ylabel("simTicks (milhões)")
+    a1.set_ylim(0, max(ticks) * 1.2)
+
+    ipc = [LO.ipc, BI.ipc]
+    b = a2.bar(["LocalBP", "BiModeBP"], ipc, color=[C_LOCAL, C_BIMODE])
+    for r, v in zip(b, ipc):
+        a2.annotate(f"{v:.3f}", (r.get_x() + r.get_width() / 2, v), ha="center", va="bottom")
+    a2.set_title("IPC (simInsts / numCycles)\nvariação: 0% (idêntico)")
+    a2.set_ylabel("IPC")
+    a2.set_ylim(0, max(ipc) * 1.2)
+    fig.tight_layout()
+    _save(fig, "tempo_ipc_inorder.png")
+
+
 def fig_escala():
     """Efeito de escala (EM-ORDEM, TIMING): n=6 vs. n=100.000.
 
@@ -116,27 +193,29 @@ def fig_escala():
     bi_rate = [BI.cond_incorrect / BI.bp_lookups * 100,
                BI_100K.cond_incorrect / BI_100K.bp_lookups * 100]
 
-    fig, ax = plt.subplots(figsize=(7, 4.5))
+    fig, ax = plt.subplots(figsize=(7, 4.8))
+    _grouped(ax, labels, lo_rate, bi_rate, fmt="{:.2f}%")
+    ax.set_ylabel("Taxa de erro global (%)")
+    ax.set_ylim(0, max(lo_rate + bi_rate) * 1.45)
+    ax.set_title("Efeito de escala (pipeline em-ordem, TIMING)\nBiModeBP reduz a taxa de erro em ambas as escalas")
+    ax.legend(loc="upper center")
+
     x = np.arange(len(labels))
-    w = 0.38
-    ax.bar(x - w / 2, lo_rate, w, label="LocalBP", color=C_LOCAL)
-    ax.bar(x + w / 2, bi_rate, w, label="BiModeBP", color=C_BIMODE)
     for i in range(len(labels)):
         var = (bi_rate[i] - lo_rate[i]) / lo_rate[i] * 100
-        ax.annotate(f"{var:+.1f}%", (x[i], max(lo_rate[i], bi_rate[i])),
+        ax.annotate(f"({var:+.1f}%)", (x[i], max(lo_rate[i], bi_rate[i])),
+                    xytext=(0, 22), textcoords="offset points",
                     ha="center", va="bottom", fontweight="bold", color=C_BIMODE, fontsize=10)
-    ax.set_xticks(x)
-    ax.set_xticklabels(labels)
-    ax.set_ylabel("Taxa de erro global (%)")
-    ax.set_ylim(0, max(lo_rate + bi_rate) * 1.25)
-    ax.set_title("Efeito de escala (pipeline em-ordem, TIMING)\nBiModeBP reduz a taxa de erro em ambas as escalas")
-    ax.legend()
     _save(fig, "efeito_escala.png")
 
 
 def main():
     print(f"Gerando figuras em {os.path.relpath(FIG_DIR, ROOT)}/")
     fig_inorder()
+    fig_volume()
+    fig_incorretas()
+    fig_taxas()
+    fig_tempo_ipc()
     fig_escala()
     print("Concluído.")
 

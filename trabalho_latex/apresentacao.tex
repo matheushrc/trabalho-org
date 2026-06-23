@@ -261,25 +261,29 @@
 % ====================================================================
 \section{Resultados}
 
-\begin{frame}{Resultados --- erros de predição ($n=6$, pipeline em-ordem)}
-  \centering
-  \includegraphics[width=0.9\textwidth]{comparacao_inorder.png}
+\begin{frame}{Resultados --- volume e erros de predição ($n=6$, em-ordem)}
+  \begin{columns}[c]
+    \column{0.5\textwidth}\centering
+      \includegraphics[width=\textwidth]{volume_e_desvios.png}
+    \column{0.5\textwidth}\centering
+      \includegraphics[width=\textwidth]{predicoes_incorretas.png}
+  \end{columns}
   \par\smallskip\small O total de desvios avaliados é idêntico (30.992) ---
   o BiModeBP reduz as predições incorretas em $\sim$38\%, concentrado nos
   desvios condicionais diretos (\texttt{DirectCond}) de \texttt{heapify}.
 \end{frame}
 
-\begin{frame}{Resultados --- por que o tempo não muda?}
-  \begin{itemize}
-    \item O pipeline \textbf{em-ordem (TIMING)} mede corretamente \emph{quantos}
-          erros de predição ocorrem.
-    \item Porém esse modelo \textbf{não aplica penalidade de ciclos} por
-          \emph{misprediction} --- não há \emph{flush} especulativo a custar tempo.
-    \item Por isso o \texttt{simTicks} é \textbf{idêntico} entre LocalBP e
-          BiModeBP, mesmo com 38\% menos erros.
-    \item O ganho do BiModeBP, neste modelo, é de \textbf{precisão}, não de
-          tempo de execução simulado.
-  \end{itemize}
+\begin{frame}{Resultados --- taxas de erro e por que o tempo não muda}
+  \begin{columns}[c]
+    \column{0.5\textwidth}\centering
+      \includegraphics[width=\textwidth]{taxa_erro_precisao.png}
+    \column{0.5\textwidth}\centering
+      \includegraphics[width=\textwidth]{tempo_ipc_inorder.png}
+  \end{columns}
+  \par\smallskip\small O pipeline em-ordem mede \emph{quantos} erros ocorrem,
+  mas não aplica penalidade de ciclos por \emph{misprediction}: \texttt{simTicks}
+  e IPC ficam idênticos entre os preditores --- o ganho do BiModeBP aqui é de
+  \textbf{precisão}, não de tempo simulado.
 \end{frame}
 
 \begin{frame}{Resultados --- tabela comparativa ($n=6$, CPU TIMING)}
