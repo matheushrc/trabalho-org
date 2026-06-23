@@ -70,7 +70,19 @@ Execute a simulação do programa usando um dos modelos de processador:
 
 ## Estrutura do Repositório
 
-- **programs/**: Contém programas em C para compilação
-- **gem5models/**: Modelos de processadores para simulação
+- **src/**: Fontes RISC-V e binários compilados — `heapSort_original.s`/`.riscv` (entrega parcial, n=6) e `heapSort_100k.s`/`.riscv` (n=100.000) — além dos modelos de processador em `src/models/`
+- **src/analysis/**: Scripts de análise/verificação dos dados das simulações (ver [src/analysis/README.md](src/analysis/README.md))
+- **simulations/**: Saídas das simulações gem5 (`stats.json` por configuração)
+- **analysis/**: Relatórios e resultados consolidados das análises
+- **trabalho_latex/**: Relatório científico (`main.tex`) e slides (`apresentacao.tex`) + figuras
+- **docs/**: Documentação do projeto (ver abaixo)
 
-Para detalhes sobre os modelos, veja [gem5models/README.md](gem5models/README.md)
+### Documentação (`docs/`)
+
+- [execution.md](docs/execution.md) — como subir o container e rodar uma simulação
+- [simulation.md](docs/simulation.md) — comandos das simulações parametrizadas por eixo
+- [requisitos.md](docs/requisitos.md) — requisitos do seminário/relatório
+- [specs_trabalho_2.md](docs/specs_trabalho_2.md) — enunciado do trabalho
+- [tutorial_venus.md](docs/tutorial_venus.md) — porte de assembly do Venus para o gem5
+
+Para detalhes sobre os modelos, veja [src/models/README.md](src/models/README.md)

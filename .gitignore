@@ -196,7 +196,7 @@ pyrightconfig.json
 [Ll]ib
 [Ll]ib64
 [Ll]ocal
-[Ss]cripts
+# [Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
 
@@ -208,3 +208,5 @@ m5out/
 simulations/**
 !simulations/**/
 !simulations/**/stats.json
+# build/packaging artifacts (reconstructible)
+*.zip
